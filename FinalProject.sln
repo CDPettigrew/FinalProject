@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cafe", "FinalProject\Cafe.csproj", "{3CEE9CA3-8894-4DCD-A61B-BD6BF87466FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Claims", "Claims\Claims.csproj", "{82C4CD15-E9EF-469D-97A5-75CD3B3E354F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Badges", "Badges\Badges.csproj", "{28905812-7B18-4F26-AF7D-67B00DABCDF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CEE9CA3-8894-4DCD-A61B-BD6BF87466FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CEE9CA3-8894-4DCD-A61B-BD6BF87466FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CEE9CA3-8894-4DCD-A61B-BD6BF87466FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CEE9CA3-8894-4DCD-A61B-BD6BF87466FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82C4CD15-E9EF-469D-97A5-75CD3B3E354F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82C4CD15-E9EF-469D-97A5-75CD3B3E354F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82C4CD15-E9EF-469D-97A5-75CD3B3E354F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82C4CD15-E9EF-469D-97A5-75CD3B3E354F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28905812-7B18-4F26-AF7D-67B00DABCDF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28905812-7B18-4F26-AF7D-67B00DABCDF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28905812-7B18-4F26-AF7D-67B00DABCDF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28905812-7B18-4F26-AF7D-67B00DABCDF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54FD241D-00B7-49D7-9D4F-977D804218A6}
+	EndGlobalSection
+EndGlobal

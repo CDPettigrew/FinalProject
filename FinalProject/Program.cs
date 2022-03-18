@@ -10,6 +10,8 @@ namespace Cafe
     {
         static void Main(string[] args)
         {
+            CafeProgramUI ui = new CafeProgramUI();
+            ui.Run();
         }
     }
 }

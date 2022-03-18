@@ -8,20 +8,36 @@ namespace Badges
 {
     public class BadgesRepository
     {
-        protected List<>
+        protected Dictionary<int , List<string>> _badgesDictionary = new Dictionary<int, List<string>>();
+        
         //C
-        public void CreateNewBadge()
-        {
-
-        }
         public void CreateDictionaryOfBadges()
         {
 
         }
-        //R
-        public void SeeAllBadges()
+        public bool CreateNewBadge(int id, List<string> accessibleDoors)
         {
+            int intialCount = _badgesDictionary.Count();
+            _badgesDictionary.Add(id, accessibleDoors);
 
+            if(_badgesDictionary.Count() > intialCount)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        
+        //R
+        public Dictionary<int, List<string>> SeeAllBadges()
+        {
+            return _badgesDictionary;
+        }
+        public Dictionary<int, List<string>> GetBadgeById(int id)
+        {
+            return (Dictionary<int, List<string>>)_badgesDictionary.Where(b => b.Key == id).DefaultIfEmpty();
         }
         //U
         public void UpdateAllowedDoorsForBadges()
@@ -29,9 +45,10 @@ namespace Badges
 
         }
         //D
-        public void DeleteDoorsFromBadge()
+        /*public bool DeleteDoorsFromBadge(int id)
         {
-
-        }
+            int intialCount = _badgesDictionary.Count();
+            _badgesDictionary.Remove(List<>);
+        }*/
     }
 }

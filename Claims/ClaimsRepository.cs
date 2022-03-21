@@ -8,26 +8,33 @@ namespace Claims
 {
     public class ClaimsRepository
     {
+        protected Queue<ClaimsObject> _claimDirectory = new Queue<ClaimsObject>();
         //C
-        public void EnterNewClaim()
+        public bool EnterNewClaim(ClaimsObject claim)
         {
-
+            int initialCount = _claimDirectory.Count();
+            _claimDirectory.Enqueue(claim);
+            if (_claimDirectory.Count() > initialCount)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         //R
-        public void SeeAllClaims()
+        public Queue<ClaimsObject> GetAllClaims()
         {
-
+            return _claimDirectory;
         }
-        public void TakeCareOfNextClaim()
+        public ClaimsObject TakeCareOfNextClaim()
         {
-
+            return _claimDirectory.Dequeue();
         }
-        //U
-
-        //D
-        public void DeleteClaim()
+        public ClaimsObject GetFirstInQueue()
         {
-
+            return _claimDirectory.Peek();
         }
     }
 }

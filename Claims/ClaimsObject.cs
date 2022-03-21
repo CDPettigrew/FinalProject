@@ -18,7 +18,14 @@ namespace Claims
         public bool IsValid { get; set; }
 
         public ClaimsObject() { }
-
+        public ClaimsObject(int claimId, ClaimType typeOfClaim, string description, int claimAmount, bool isValid)
+        {
+            ClaimId = claimId;
+            TypeOfClaim = typeOfClaim;
+            Description = description;
+            ClaimAmount = claimAmount;
+            IsValid = isValid;
+        }
         public ClaimsObject(int claimId, ClaimType typeOfClaim, string description, int claimAmount, DateTime incidentDate, DateTime claimDate, bool isValid)
         {
             ClaimId = claimId;

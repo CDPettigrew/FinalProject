@@ -8,20 +8,43 @@ namespace Badges
 {
     public class BadgesRepository
     {
-        protected Dictionary<int , List<string>> _badgesDictionary = new Dictionary<int, List<string>>();
-        
+        protected List<BadgesObject> _badgesRepository = new List<BadgesObject>();
+        protected Dictionary<int, List<string>> _badgesDictionary = new Dictionary<int, List<string>>();
         //C
-        public void CreateDictionaryOfBadges()
+        public bool CreateNewBadge(BadgesObject badge)
         {
+            int intialCount = _badgesRepository.Count();
+            int initialDCount = _badgesDictionary.Count();
 
-        }
-        public bool CreateNewBadge(int id, List<string> accessibleDoors)
-        {
-            int intialCount = _badgesDictionary.Count();
-            _badgesDictionary.Add(id, accessibleDoors);
-
-            if(_badgesDictionary.Count() > intialCount)
+            if (!_badgesDictionary.ContainsKey(badge.BadgeID) && !_badgesRepository.Contains(badge))
             {
+                _badgesRepository.Add(badge);
+                _badgesDictionary.Add(badge.BadgeID, badge.AllowedAccess);
+                if (_badgesRepository.Count() > intialCount && _badgesDictionary.Count > initialDCount)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        //R
+        public Dictionary<int, List<string>> SeeAllBadges()
+        {
+            return _badgesDictionary;
+        }
+        //U
+        public bool AddDoorToBadge(int id, string door)
+        {
+            if (_badgesDictionary.ContainsKey(id))
+            {
+                _badgesDictionary[id].Add(door);
                 return true;
             }
             else
@@ -29,26 +52,18 @@ namespace Badges
                 return false;
             }
         }
-        
-        //R
-        public Dictionary<int, List<string>> SeeAllBadges()
-        {
-            return _badgesDictionary;
-        }
-        public Dictionary<int, List<string>> GetBadgeById(int id)
-        {
-            return (Dictionary<int, List<string>>)_badgesDictionary.Where(b => b.Key == id).DefaultIfEmpty();
-        }
-        //U
-        public void UpdateAllowedDoorsForBadges()
-        {
-
-        }
         //D
-        /*public bool DeleteDoorsFromBadge(int id)
+        public bool RemoveDoorFromBadge(int id, string door)
         {
-            int intialCount = _badgesDictionary.Count();
-            _badgesDictionary.Remove(List<>);
-        }*/
+            if (_badgesDictionary.ContainsKey(id))
+            {
+                _badgesDictionary[id].Remove(door);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

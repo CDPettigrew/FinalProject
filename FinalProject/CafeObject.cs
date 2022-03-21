@@ -15,6 +15,13 @@ namespace Cafe
         public double Price { get; set; }
 
         public CafeObject() { }
+        public CafeObject(string name, string description, int mealNumber, double price)
+        {
+            Name = name;
+            Description = description;
+            MealNumber = mealNumber;
+            Price = price;
+        }
         public CafeObject(string name,string description ,int mealNumber , List<string> ingredients, double price)
         {
             Name = name;

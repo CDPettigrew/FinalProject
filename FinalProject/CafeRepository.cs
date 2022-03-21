@@ -10,7 +10,7 @@ namespace Cafe
     {
         protected List<CafeObject> _menuDirectory = new List<CafeObject>();
         //C
-        public bool CreateNewMenuItem(CafeObject menuItem)
+        public bool AddNewMenuItem(CafeObject menuItem)
         {
             int initialItemCount = _menuDirectory.Count();
             _menuDirectory.Add(menuItem);
@@ -46,7 +46,7 @@ namespace Cafe
             int initialItemCount = _menuDirectory.Count();
             _menuDirectory.Remove(menuItem);
 
-            if (_menuDirectory.Count > initialItemCount)
+            if (_menuDirectory.Count < initialItemCount)
             {
                 return true;
             }

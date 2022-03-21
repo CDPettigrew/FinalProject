@@ -48,7 +48,6 @@ namespace Cafe
         {
             Console.Clear();
             CafeObject menuItem = new CafeObject();
-            //List<string> indgredientList = new List<string>();
             Console.Write("Please enter Name for the new menu item: ");
             menuItem.Name = Console.ReadLine().ToLower();
             Console.Write("Please enter a description for the menu item: ");
@@ -59,7 +58,7 @@ namespace Cafe
             menuItem.Ingredients = Console.ReadLine().ToLower().Split(',').ToList();
             Console.Write("Please enter the price for the menu item: ");
             menuItem.Price = Convert.ToDouble(Console.ReadLine());
-            if (_menuDirectory.CreateNewMenuItem(menuItem))
+            if (_menuDirectory.AddNewMenuItem(menuItem))
             {
                 Console.WriteLine($"The menu item {menuItem.Name} was added to the list!");
             }

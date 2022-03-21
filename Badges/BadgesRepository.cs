@@ -11,7 +11,7 @@ namespace Badges
         protected List<BadgesObject> _badgesRepository = new List<BadgesObject>();
         protected Dictionary<int, List<string>> _badgesDictionary = new Dictionary<int, List<string>>();
         //C
-        public bool CreateNewBadge(BadgesObject badge)
+        public bool CreateNewBadgeAndAddToDictionary(BadgesObject badge)
         {
             int intialCount = _badgesRepository.Count();
             int initialDCount = _badgesDictionary.Count();

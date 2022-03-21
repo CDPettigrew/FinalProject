@@ -53,7 +53,7 @@ namespace Badges
             newBadge.BadgeID = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Please enter a list of doors you'd like the badge to have access to, split with a coma and no spaces: ");
             newBadge.AllowedAccess = Console.ReadLine().Split(',').ToList();
-            if (_badgeRepository.CreateNewBadge(newBadge))
+            if (_badgeRepository.CreateNewBadgeAndAddToDictionary(newBadge))
             {
                 Console.WriteLine("Your badge was created and was allowed access to the specified doors!");
             }
@@ -157,10 +157,10 @@ namespace Badges
             var badge3 = new BadgesObject(24, allowedAccess3);
             List<string> allowedAccess4 = new List<string>(new string[] { "a2", "a4", "a6" });
             var badge4 = new BadgesObject(23, allowedAccess4);
-            _badgeRepository.CreateNewBadge(badge1);
-            _badgeRepository.CreateNewBadge(badge2);
-            _badgeRepository.CreateNewBadge(badge3);
-            _badgeRepository.CreateNewBadge(badge4);
+            _badgeRepository.CreateNewBadgeAndAddToDictionary(badge1);
+            _badgeRepository.CreateNewBadgeAndAddToDictionary(badge2);
+            _badgeRepository.CreateNewBadgeAndAddToDictionary(badge3);
+            _badgeRepository.CreateNewBadgeAndAddToDictionary(badge4);
         }
     }
 }

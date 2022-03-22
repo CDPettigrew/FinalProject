@@ -90,23 +90,25 @@ namespace Claims
             }
             else
             {
-                Console.WriteLine("Claim was not added please try again.");
+                Console.WriteLine("Claim was not added please try again, make sure you enter a valid ID number!");
             }
             AnyKey();
         }
         private void SeeAllClaims()
         {
             Console.Clear();
+            Console.WriteLine(" Claim ID  ||  ClaimType  ||  Description     ||     ClaimAmount  ||  IncidentDate  ||  CLaimDate  ||  Is Claim Valid");
             Queue<ClaimsObject> listOfClaims = _claimDirectory.GetAllClaims();
             foreach (var claim in listOfClaims)
             {
-                Console.WriteLine($"Claim Id: {claim.ClaimId}\n" +
-                    $"Claim Type: {claim.TypeOfClaim}\n" +
+                Console.WriteLine($" {claim.ClaimId, -12}{claim.TypeOfClaim,-13}{claim.Description,-30}${claim.ClaimAmount,-14}{claim.IncidentDate.ToShortDateString(),-16}{claim.ClaimDate.ToShortDateString(),10}{claim.IsValid,10}");
+                Console.WriteLine();
+                /*$"Claim Type: {claim.TypeOfClaim}\n" +
                     $"Claim Description: {claim.Description}\n" +
                     $"Claim Amount: ${claim.ClaimAmount}\n" +
                     $"Date of Claim Incident: {claim.IncidentDate}\n" +
                     $"Date Claim Was Made: {claim.ClaimDate}\n" +
-                    $"Is the Claim Valid: {claim.IsValid}\n");
+                    $"Is the Claim Valid: {claim.IsValid}\n");*/
             }
             AnyKey();
         }

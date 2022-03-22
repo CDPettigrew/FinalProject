@@ -13,15 +13,19 @@ namespace Claims
         public bool EnterNewClaim(ClaimsObject claim)
         {
             int initialCount = _claimDirectory.Count();
-            if (_claimDirectory.Count() > initialCount && !_claimDirectory.Contains(badge))
+            if (!_claimDirectory.Contains(claim))
             {
                 _claimDirectory.Enqueue(claim);
-                return true;
+                if (_claimDirectory.Count() > initialCount)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
         //R
         public ClaimsObject TakeCareOfNextClaim()

@@ -71,9 +71,9 @@ namespace Claims
             claim.Description = Console.ReadLine();
             Console.Write("Please enter the dollar amount of your claim: ");
             claim.ClaimAmount = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Please enter the date of the incident in this format MM/DD/YY: ");
+            Console.Write("Please enter the date of the incident in this format MM/DD/YYYY: ");
             claim.IncidentDate = Convert.ToDateTime(Console.ReadLine());
-            Console.Write("Please enter the date you submitted the claim in this format MM/DD/YY: ");
+            Console.Write("Please enter the date you submitted the claim in this format MM/DD/YYYY: ");
             claim.ClaimDate = Convert.ToDateTime(Console.ReadLine());
             int result = (claim.ClaimDate - claim.IncidentDate).Days;
             if (result <= 30)
@@ -134,7 +134,6 @@ namespace Claims
                 case "no":
                 case "n":
                 default:
-                    //AnyKey();
                     break;
             }
         }

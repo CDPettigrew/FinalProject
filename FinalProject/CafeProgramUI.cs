@@ -11,7 +11,6 @@ namespace Cafe
         private CafeRepository _menuDirectory = new CafeRepository();
         public void Run()
         {
-            //SeeContent();
             Menu();
         }
         private void Menu()
@@ -126,9 +125,5 @@ namespace Cafe
                 }
             }
         }
-        /*private void SeedContent()
-        {
-            var item1 = new CafeObject("macaroni", "pasta and cheese", 1, 5);
-        }*/
     }
 }

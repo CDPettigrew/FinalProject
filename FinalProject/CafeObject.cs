@@ -13,7 +13,6 @@ namespace Cafe
         public string Description { get; set; }
         public List<string> Ingredients { get; set; }
         public double Price { get; set; }
-
         public CafeObject() { }
         public CafeObject(string name, string description, int mealNumber, double price)
         {
@@ -30,7 +29,5 @@ namespace Cafe
             Ingredients = ingredients;
             Price = price;
         }
-
-
     }
 }

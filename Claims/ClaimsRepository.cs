@@ -13,9 +13,9 @@ namespace Claims
         public bool EnterNewClaim(ClaimsObject claim)
         {
             int initialCount = _claimDirectory.Count();
-            _claimDirectory.Enqueue(claim);
-            if (_claimDirectory.Count() > initialCount)
+            if (_claimDirectory.Count() > initialCount && !_claimDirectory.Contains(badge))
             {
+                _claimDirectory.Enqueue(claim);
                 return true;
             }
             else
@@ -24,10 +24,6 @@ namespace Claims
             }
         }
         //R
-        public Queue<ClaimsObject> GetAllClaims()
-        {
-            return _claimDirectory;
-        }
         public ClaimsObject TakeCareOfNextClaim()
         {
             return _claimDirectory.Dequeue();
@@ -35,6 +31,11 @@ namespace Claims
         public ClaimsObject GetFirstInQueue()
         {
             return _claimDirectory.Peek();
+        }
+        //D
+        public Queue<ClaimsObject> GetAllClaims()
+        {
+            return _claimDirectory;
         }
     }
 }

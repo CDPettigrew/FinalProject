@@ -124,7 +124,6 @@ namespace Badges
                     default:
                         runUpdateMenu = false;
                         break;
-
                 }
             }
         }

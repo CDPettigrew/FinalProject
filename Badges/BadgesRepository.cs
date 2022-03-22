@@ -15,7 +15,6 @@ namespace Badges
         {
             int intialCount = _badgesRepository.Count();
             int initialDCount = _badgesDictionary.Count();
-
             if (!_badgesDictionary.ContainsKey(badge.BadgeID) && !_badgesRepository.Contains(badge))
             {
                 _badgesRepository.Add(badge);

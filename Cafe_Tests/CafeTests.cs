@@ -26,10 +26,8 @@ namespace Cafe_Tests
             bool menuHasItems = menuItems.Contains(menuItem);
             Assert.IsTrue(menuHasItems);
         }
-
         private CafeRepository _cafeRepository;
         private CafeObject _cafeObject;
-
         [TestInitialize]
         public void Arrange()
         {
@@ -37,7 +35,12 @@ namespace Cafe_Tests
             _cafeObject = new CafeObject("macaroni", "cheese and pasta", 1, 5);
             _cafeRepository.AddNewMenuItem(_cafeObject);
         }
-
+        [TestMethod]
+        public void GetMenuItemByOrderNumber_ShouldReturnCorrectMenuItem()
+        {
+            CafeObject menuItem = _cafeRepository.GetMenuItemByOrderNumber(1);
+            Assert.AreEqual(_cafeObject, menuItem);
+        }
         [TestMethod]
         public void DeleteMenuItem_ShouldReturnCorrectBoolean()
         {

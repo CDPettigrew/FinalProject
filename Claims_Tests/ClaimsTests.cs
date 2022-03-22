@@ -34,13 +34,13 @@ namespace Claims_Tests
             Assert.IsTrue(result);
         }
         [TestMethod]
-        public void TakeCareOfNextClaim_ShouldReturnNextItemInQueueAndRemoveIt()
+        public void TakeCareOfNextClaim_ShouldReturnNextItemInQueue()
         {
             ClaimsObject claim = _claimsRepository.TakeCareOfNextClaim();
             Assert.AreEqual(_claimsObject , claim);
         }
         [TestMethod]
-        public void GetFirstInQueue_ShouldReturnNextItemInQueueAndNotRemoveIt()
+        public void GetFirstInQueue_ShouldReturnNextItemInQueue()
         {
             ClaimsObject claim = _claimsRepository.GetFirstInQueue();
             Assert.AreEqual(_claimsObject, claim);

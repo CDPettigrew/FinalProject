@@ -50,7 +50,7 @@ namespace Claims
             Console.Clear();
             Console.Write("Please enter an id number for your claim: ");
             claim.ClaimId = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Please enter a type of claim form the provided list: Car, Home, Theft");
+            Console.Write("Please enter a type of claim form the provided list: Car, Home, Theft: ");
             string claimType = Console.ReadLine().ToLower();
             switch (claimType)
             {
@@ -103,12 +103,6 @@ namespace Claims
             {
                 Console.WriteLine($" {claim.ClaimId, -12}{claim.TypeOfClaim,-13}{claim.Description,-30}${claim.ClaimAmount,-14}{claim.IncidentDate.ToShortDateString(),-16}{claim.ClaimDate.ToShortDateString(),10}{claim.IsValid,10}");
                 Console.WriteLine();
-                /*$"Claim Type: {claim.TypeOfClaim}\n" +
-                    $"Claim Description: {claim.Description}\n" +
-                    $"Claim Amount: ${claim.ClaimAmount}\n" +
-                    $"Date of Claim Incident: {claim.IncidentDate}\n" +
-                    $"Date Claim Was Made: {claim.ClaimDate}\n" +
-                    $"Is the Claim Valid: {claim.IsValid}\n");*/
             }
             AnyKey();
         }
@@ -120,10 +114,9 @@ namespace Claims
                 $"Claim Type: {nextClaim.TypeOfClaim}\n" +
                 $"Claim Description: {nextClaim.Description}\n" +
                 $"Claim Amount: ${nextClaim.ClaimAmount}\n" +
-                $"Date of Claim Incident: {nextClaim.IncidentDate}\n" +
-                $"Date Claim Was Made: {nextClaim.ClaimDate}\n" +
+                $"Date of Claim Incident: {nextClaim.IncidentDate.ToShortDateString()}\n" +
+                $"Date Claim Was Made: {nextClaim.ClaimDate.ToShortDateString()}\n" +
                 $"Is the Claim Valid: {nextClaim.IsValid}\n");
-
             Console.Write("Would you like to handle this claim? ");
             switch (Console.ReadLine().ToLower())
             {
@@ -147,10 +140,10 @@ namespace Claims
         private void SeedContent()
         {
             //when entering a claim in the UI you can input the two dates, but the seed content wasn't happy with the dates so I had to take them out
-            var claimOne = new ClaimsObject(1, ClaimType.Car, "car crash", 500, true);
-            var claimTwo = new ClaimsObject(2, ClaimType.Home, "tree destroyed house", 5000, true);
-            var claimThree = new ClaimsObject(3, ClaimType.Theft, "valuables taken", 50000, true);
-            var claimFour = new ClaimsObject(4, ClaimType.Theft, "car stolen from house", 1000, true);
+            var claimOne = new ClaimsObject(1, ClaimType.Car, "car crash", 9001, true);
+            var claimTwo = new ClaimsObject(2, ClaimType.Home, "tree destroyed house", 626, true);
+            var claimThree = new ClaimsObject(3, ClaimType.Theft, "valuables taken", 12345, true);
+            var claimFour = new ClaimsObject(4, ClaimType.Theft, "car stolen from house", 5432, true);
             _claimDirectory.EnterNewClaim(claimOne);
             _claimDirectory.EnterNewClaim(claimTwo);
             _claimDirectory.EnterNewClaim(claimThree);

@@ -67,14 +67,11 @@ namespace Badges
         {
             Console.Clear();
             Dictionary<int, List<string>> listOfBadges = _badgeRepository.SeeAllBadges();
+            Console.WriteLine($"Badge Id:    Accessable Doors:");
             foreach (KeyValuePair<int, List<string>> pair in listOfBadges)
             {
-                Console.WriteLine($"Badge Id: {pair.Key}");
-                Console.WriteLine("Accessable Doors:");
-                foreach (var x in pair.Value)
-                {
-                    Console.WriteLine(x);
-                }
+                string[] kvp = pair.Value.ToArray();
+                Console.WriteLine($" {pair.Key} {string.Join(", ", kvp),19}");
             }
             AnyKey();
         }

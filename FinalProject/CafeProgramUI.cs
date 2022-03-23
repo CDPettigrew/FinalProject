@@ -69,22 +69,6 @@ namespace Cafe
             }
             AnyKey();
         }
-        /*private void ShowAllMenuItemsTwo()
-        {
-            Console.Clear();
-            Console.WriteLine("      Name      ||            Description                ||   MealNumber   ||   Price   ||");
-            List<CafeObject> listOfMenuItems = _menuDirectory.ShowAllMenuItems();
-            foreach (CafeObject menuItem in listOfMenuItems)
-            {
-                string[] indgr = menuItem.Ingredients.ToArray();
-                Console.WriteLine($" {menuItem.Name,-18}{menuItem.Description,-50}{menuItem.MealNumber,-10}${menuItem.Price}\n"); //foreach(var x in menuItem.Ingredients) { Console.WriteLine(x); };
-                Console.WriteLine("-------------------------------------------");
-                Console.WriteLine($"||   {menuItem.Name}   Ingredients      ||\n");
-                Console.WriteLine($"{string.Join(", ", indgr)}");
-                Console.WriteLine("-------------------------------------------\n");
-            }
-            AnyKey();
-        }*/
         private void ShowAllMenuItems()
         {
             Console.Clear();

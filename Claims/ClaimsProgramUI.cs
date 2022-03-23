@@ -124,7 +124,7 @@ namespace Claims
                 case "yes":
                 case "y":
                     _claimDirectory.TakeCareOfNextClaim();
-                    Console.WriteLine("Press enter when finished handling current claim.");
+                    Console.WriteLine($"Press enter when finished handling claim {nextClaim.ClaimId}.");
                     Console.ReadKey();
                     break;
                 case "no":
@@ -135,7 +135,7 @@ namespace Claims
         }
         private void AnyKey()
         {
-            Console.WriteLine("Press any key to continue");
+            Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }
         private void SeedContent()

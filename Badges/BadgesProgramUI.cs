@@ -55,7 +55,8 @@ namespace Badges
             newBadge.AllowedAccess = Console.ReadLine().Split(',').ToList();
             if (_badgeRepository.CreateNewBadgeAndAddToDictionary(newBadge))
             {
-                Console.WriteLine("Your badge was created and was allowed access to the specified doors!");
+                string[] doors = newBadge.AllowedAccess.ToArray();
+                Console.WriteLine($"Badge {newBadge.BadgeID} was created and was allowed access to the door(s): {string.Join(", ", doors)}!");
             }
             else
             {
@@ -89,7 +90,7 @@ namespace Badges
                 Console.WriteLine("What would you like to do with the ID?\n" +
                     "1. Add a door\n" +
                     "2. Remove a door\n" +
-                    "3. Exit to Main Menu\n");
+                    "3. Exit to Main Menu");
                 switch (Console.ReadLine())
                 {
                     case "1":
@@ -126,7 +127,7 @@ namespace Badges
         }
         private void AnyKey()
         {
-            Console.WriteLine("Press any key to continue");
+            Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }
         private void HSeeAllBadges()

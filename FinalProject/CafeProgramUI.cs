@@ -55,13 +55,13 @@ namespace Cafe
             menuItem.Description = Console.ReadLine().ToLower();
             Console.Write("Please enter an order number for the menu item: ");
             menuItem.MealNumber = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Please enter a list of ingredients for the menu item seperated by a coma with no spaces: ");
+            Console.Write("Please enter a list of ingredients for the menu item, seperated by a coma with no spaces: ");
             menuItem.Ingredients = Console.ReadLine().ToLower().Split(',').ToList();
             Console.Write("Please enter the price for the menu item: ");
             menuItem.Price = Convert.ToDecimal(Console.ReadLine());
             if (_menuDirectory.AddNewMenuItem(menuItem))
             {
-                Console.WriteLine($"The menu item {menuItem.Name} was added to the list!");
+                Console.WriteLine($"{menuItem.Name} was added to the menu!");
             }
             else
             {
@@ -120,7 +120,7 @@ namespace Cafe
         }
         private void AnyKey()
         {
-            Console.WriteLine("Press any key to continue");
+            Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }
         private void HShowAllMenuItems()

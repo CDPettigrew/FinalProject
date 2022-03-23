@@ -38,6 +38,7 @@ namespace Cafe
                     case "4":
                     case "exit":
                     case "e":
+                    default:
                         runMenu = false;
                         break;
                 }

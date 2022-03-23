@@ -12,13 +12,13 @@ namespace Claims
         public int ClaimId { get; set; }
         public ClaimType TypeOfClaim { get; set; }
         public string Description { get; set; }
-        public int ClaimAmount { get; set; }
+        public decimal ClaimAmount { get; set; }
         public DateTime IncidentDate { get; set; }
         public DateTime ClaimDate { get; set; }
         public bool IsValid { get; set; }
 
         public ClaimsObject() { }
-        public ClaimsObject(int claimId, ClaimType typeOfClaim, string description, int claimAmount, bool isValid)
+        public ClaimsObject(int claimId, ClaimType typeOfClaim, string description, decimal claimAmount, bool isValid)
         {
             ClaimId = claimId;
             TypeOfClaim = typeOfClaim;
@@ -26,7 +26,7 @@ namespace Claims
             ClaimAmount = claimAmount;
             IsValid = isValid;
         }
-        public ClaimsObject(int claimId, ClaimType typeOfClaim, string description, int claimAmount, DateTime incidentDate, DateTime claimDate, bool isValid)
+        public ClaimsObject(int claimId, ClaimType typeOfClaim, string description, decimal claimAmount, DateTime incidentDate, DateTime claimDate, bool isValid)
         {
             ClaimId = claimId;
             TypeOfClaim = typeOfClaim;

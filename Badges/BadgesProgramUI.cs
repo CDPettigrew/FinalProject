@@ -71,7 +71,7 @@ namespace Badges
             foreach (KeyValuePair<int, List<string>> pair in listOfBadges)
             {
                 string[] kvp = pair.Value.ToArray();
-                Console.WriteLine($" {pair.Key} {string.Join(", ", kvp),19}");
+                Console.WriteLine($" {pair.Key,-11} {string.Join(", ", kvp)}");
             }
             AnyKey();
         }
@@ -133,6 +133,17 @@ namespace Badges
         {
             Console.Clear();
             Dictionary<int, List<string>> listOfBadges = _badgeRepository.SeeAllBadges();
+            Console.WriteLine($"Badge Id:    Accessable Doors:");
+            foreach (KeyValuePair<int, List<string>> pair in listOfBadges)
+            {
+                string[] kvp = pair.Value.ToArray();
+                Console.WriteLine($" {pair.Key,-11} {string.Join(", ", kvp)}");
+            }
+        }
+        /*private void OneHSeeAllBadges()
+        {
+            Console.Clear();
+            Dictionary<int, List<string>> listOfBadges = _badgeRepository.SeeAllBadges();
             foreach (KeyValuePair<int, List<string>> pair in listOfBadges)
             {
                 Console.WriteLine($"Badge Id: {pair.Key}");
@@ -142,7 +153,7 @@ namespace Badges
                     Console.WriteLine(x);
                 }
             }
-        }
+        }*/
         private void SeedContent()
         {
             List<string> allowedAccess = new List<string>(new string[] {"a1","a2","a3"});

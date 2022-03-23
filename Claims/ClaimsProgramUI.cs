@@ -39,6 +39,7 @@ namespace Claims
                     case "4":
                     case "exit":
                     case "e":
+                    default:
                         runMenu = false;
                         break;
                 }
@@ -70,7 +71,7 @@ namespace Claims
             Console.Write("Please enter a short description for your claim: ");
             claim.Description = Console.ReadLine();
             Console.Write("Please enter the dollar amount of your claim: ");
-            claim.ClaimAmount = Convert.ToInt32(Console.ReadLine());
+            claim.ClaimAmount = Convert.ToDecimal(Console.ReadLine());
             Console.Write("Please enter the date of the incident in this format MM/DD/YYYY: ");
             claim.IncidentDate = Convert.ToDateTime(Console.ReadLine());
             Console.Write("Please enter the date you submitted the claim in this format MM/DD/YYYY: ");
@@ -140,10 +141,10 @@ namespace Claims
         private void SeedContent()
         {
             //when entering a claim in the UI you can input the two dates, but the seed content wasn't happy with the dates so I had to take them out
-            var claimOne = new ClaimsObject(1, ClaimType.Car, "car crash", 9001, true);
-            var claimTwo = new ClaimsObject(2, ClaimType.Home, "tree destroyed house", 626, true);
-            var claimThree = new ClaimsObject(3, ClaimType.Theft, "valuables taken", 12345, true);
-            var claimFour = new ClaimsObject(4, ClaimType.Theft, "car stolen from house", 5432, true);
+            var claimOne = new ClaimsObject(1, ClaimType.Car, "car crash", 9001.00m, true);
+            var claimTwo = new ClaimsObject(2, ClaimType.Home, "tree destroyed house", 626.00m, true);
+            var claimThree = new ClaimsObject(3, ClaimType.Theft, "valuables taken", 12345.00m, true);
+            var claimFour = new ClaimsObject(4, ClaimType.Theft, "car stolen from house", 5432.00m, true);
             _claimDirectory.EnterNewClaim(claimOne);
             _claimDirectory.EnterNewClaim(claimTwo);
             _claimDirectory.EnterNewClaim(claimThree);

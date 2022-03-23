@@ -24,7 +24,7 @@ namespace Claims
                     $"1. Enter a New Claim\n" +
                     $"2. Take Care of Next Claim in Queue\n" +
                     $"3. See all Items In the current Queue\n" +
-                    $"4. Exit the Menu\n");
+                    $"4. Exit the Menu");
                 switch (Console.ReadLine())
                 {
                     case "1":

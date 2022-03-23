@@ -11,6 +11,7 @@ namespace Cafe
         private CafeRepository _menuDirectory = new CafeRepository();
         public void Run()
         {
+            SeedContent();
             Menu();
         }
         private void Menu()
@@ -23,7 +24,7 @@ namespace Cafe
                     "1. Create a New Menu Item\n" +
                     "2. Show All Current Menu Items\n" +
                     "3. Delete Menu Item\n" +
-                    "4. Exit\n");
+                    "4. Exit");
                 switch (Console.ReadLine())
                 {
                     case "1":
@@ -57,7 +58,7 @@ namespace Cafe
             Console.Write("Please enter a list of ingredients for the menu item seperated by a coma with no spaces: ");
             menuItem.Ingredients = Console.ReadLine().ToLower().Split(',').ToList();
             Console.Write("Please enter the price for the menu item: ");
-            menuItem.Price = Convert.ToDouble(Console.ReadLine());
+            menuItem.Price = Convert.ToDecimal(Console.ReadLine());
             if (_menuDirectory.AddNewMenuItem(menuItem))
             {
                 Console.WriteLine($"The menu item {menuItem.Name} was added to the list!");
@@ -66,23 +67,36 @@ namespace Cafe
             {
                 Console.WriteLine($"{menuItem.Name} was not added please enter a valid menu item.");
             }
-            AnyKey();            
+            AnyKey();
         }
+        /*private void ShowAllMenuItemsTwo()
+        {
+            Console.Clear();
+            Console.WriteLine("      Name      ||            Description                ||   MealNumber   ||   Price   ||");
+            List<CafeObject> listOfMenuItems = _menuDirectory.ShowAllMenuItems();
+            foreach (CafeObject menuItem in listOfMenuItems)
+            {
+                string[] indgr = menuItem.Ingredients.ToArray();
+                Console.WriteLine($" {menuItem.Name,-18}{menuItem.Description,-50}{menuItem.MealNumber,-10}${menuItem.Price}\n"); //foreach(var x in menuItem.Ingredients) { Console.WriteLine(x); };
+                Console.WriteLine("-------------------------------------------");
+                Console.WriteLine($"||   {menuItem.Name}   Ingredients      ||\n");
+                Console.WriteLine($"{string.Join(", ", indgr)}");
+                Console.WriteLine("-------------------------------------------\n");
+            }
+            AnyKey();
+        }*/
         private void ShowAllMenuItems()
         {
             Console.Clear();
             List<CafeObject> listOfMenuItems = _menuDirectory.ShowAllMenuItems();
             foreach(CafeObject menuItem in listOfMenuItems)
             {
-                Console.WriteLine($"Name: {menuItem.Name}\n" +
-                    $"Description: {menuItem.Description}\n" +
-                    $"Order Number: {menuItem.MealNumber}\n" +
-                    $"Price: {menuItem.Price}\n" +
-                    $"Ingredients: \n");
-                foreach (var x in menuItem.Ingredients)
-                {
-                    Console.WriteLine(x);
-                }
+                string[] indgr = menuItem.Ingredients.ToArray();
+                Console.WriteLine($"\n Name: {menuItem.Name}\n" +
+                    $" Price: {menuItem.Price}\n" +
+                    $" {menuItem.Description}\n" +
+                    $" Order Number: {menuItem.MealNumber}\n" +
+                    $" Ingredients: {string.Join(", ", indgr)}\n");
             }
             AnyKey();
         }
@@ -115,16 +129,28 @@ namespace Cafe
             List<CafeObject> listOfMenuItems = _menuDirectory.ShowAllMenuItems();
             foreach (CafeObject menuItem in listOfMenuItems)
             {
+                string[] indgr = menuItem.Ingredients.ToArray();
                 Console.WriteLine($"Name: {menuItem.Name}\n" +
                     $"Description: {menuItem.Description}\n" +
                     $"Order Number: {menuItem.MealNumber}\n" +
                     $"Price: {menuItem.Price}\n" +
-                    $"Ingredients: \n");
-                foreach(var x in menuItem.Ingredients)
-                {
-                    Console.WriteLine(x);
-                }
+                    $" Ingredients: {string.Join(", ", indgr)}\n");
             }
+        }
+        private void SeedContent()
+        {
+            List<string> ingredients = new List<string>(new string[] { "water", "cheese", "pasta", "salt" });
+            var item1 = new CafeObject("macaroni", "pasta an cheese", 1, ingredients, 5.00m);
+            List<string> ingredients2 = new List<string>(new string[] { "hamburger", "cheese", "condiments", "tomato", "lettuce", "onion" });
+            var item2 = new CafeObject("cheeseburger", "beef patty with assortment of toppings", 2, ingredients2, 6.00m);
+            List<string> ingredients3 = new List<string>(new string[] { "pretzel", "cheese" });
+            var item3 = new CafeObject("giant pretzel", "a giant pretzel with optional cheese", 3, ingredients3, 3.00m);
+            List<string> ingredients4 = new List<string>(new string[] { "beef hot dog", "bun", "condiments", "onions", "pickles", "banana peppers" });
+            var item4 = new CafeObject("hot dog", "beef hot dog on a bun with assorted toppings", 4, ingredients4, 5.00m);
+            _menuDirectory.AddNewMenuItem(item1);
+            _menuDirectory.AddNewMenuItem(item2);
+            _menuDirectory.AddNewMenuItem(item3);
+            _menuDirectory.AddNewMenuItem(item4);
         }
     }
 }

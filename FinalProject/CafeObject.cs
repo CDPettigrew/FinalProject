@@ -12,16 +12,16 @@ namespace Cafe
         public int MealNumber { get; set; }
         public string Description { get; set; }
         public List<string> Ingredients { get; set; }
-        public double Price { get; set; }
+        public decimal Price { get; set; }
         public CafeObject() { }
-        public CafeObject(string name, string description, int mealNumber, double price)
+        public CafeObject(string name, string description, int mealNumber, decimal price)
         {
             Name = name;
             Description = description;
             MealNumber = mealNumber;
             Price = price;
         }
-        public CafeObject(string name,string description ,int mealNumber , List<string> ingredients, double price)
+        public CafeObject(string name,string description ,int mealNumber , List<string> ingredients, decimal price)
         {
             Name = name;
             MealNumber = mealNumber;

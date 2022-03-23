@@ -24,7 +24,7 @@ namespace Badges
                     $"1. Create a New Badge\n" +
                     $"2. See All Badges And There Access\n" +
                     $"3. Update Door Access on Existing Badge\n" +
-                    $"4. Exit The Menu\n");
+                    $"4. Exit The Menu");
                 switch (Console.ReadLine())
                 {
                     case "1":
@@ -140,20 +140,6 @@ namespace Badges
                 Console.WriteLine($" {pair.Key,-11} {string.Join(", ", kvp)}");
             }
         }
-        /*private void OneHSeeAllBadges()
-        {
-            Console.Clear();
-            Dictionary<int, List<string>> listOfBadges = _badgeRepository.SeeAllBadges();
-            foreach (KeyValuePair<int, List<string>> pair in listOfBadges)
-            {
-                Console.WriteLine($"Badge Id: {pair.Key}");
-                Console.WriteLine("Accessable Doors:");
-                foreach (var x in pair.Value)
-                {
-                    Console.WriteLine(x);
-                }
-            }
-        }*/
         private void SeedContent()
         {
             List<string> allowedAccess = new List<string>(new string[] {"a1","a2","a3"});

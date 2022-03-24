@@ -14,7 +14,7 @@ namespace ExtraChallenge
         {
             SeedContent();
             Menu();
-        } 
+        }
         private void Menu()
         {
             bool runMenu = true;
@@ -52,15 +52,15 @@ namespace ExtraChallenge
         }
         private void SeeAllCurrentOutings()
         {
-            Console.Clear();
             List<CompanyObject> outings = _companyDirectory.DisplayAllOutings();
-            foreach(CompanyObject outing in outings)
+            Console.Clear();
+            foreach (CompanyObject outing in outings)
             {
                 Console.WriteLine($"EventType: {outing.TypeOfEvent}\n" +
                     $"Number of Attendees: {outing.NumOfPeople}\n" +
                     $"Date: {outing.EventDate.ToShortDateString()}\n" +
                     $"Cost Per Person: ${outing.CostPerPerson}\n" +
-                    $"Total Event Cost: ${outing.CostPerEvent}");
+                    $"Total Event Cost: ${outing.CostPerEvent}\n");
             }
             AnyKey();
         }
@@ -96,7 +96,50 @@ namespace ExtraChallenge
         }
         private void TotalCostForOutingType()
         {
-            
+            bool runCostMenu = true;
+            while (runCostMenu)
+            {
+                Console.Clear();
+                Console.WriteLine("Please enter an event type listed below to get its total cost \n" +
+                    "1. Golf\n" +
+                    "2. Bowling\n" +
+                    "3. Amusement Park\n" +
+                    "4. Concert\n" +
+                    "5. Exit back to Main Menu");
+                switch (Console.ReadLine().ToLower())
+                {
+                    case "1":
+                    case "golf":
+                        decimal golfCost = _companyDirectory.ViewTotalGolfCost();
+                        Console.WriteLine($"The total cost for golf outings to date is ${golfCost}");
+                        AnyKey();
+                        break;
+                    case "2":
+                    case "bowling":
+                        decimal bowlingCost = _companyDirectory.ViewTotalBowlingCost();
+                        Console.WriteLine($"The total cost for bowling outings to date is ${bowlingCost}");
+                        AnyKey();
+                        break;
+                    case "3":
+                    case "amusement park":
+                        decimal amusement = _companyDirectory.ViewTotalAmusementParkCost();
+                        Console.WriteLine($"The total cost for amusement park outings to date is ${amusement}");
+                        AnyKey();
+                        break;
+                    case "4":
+                    case "concert":
+                        decimal concert = _companyDirectory.ViewTotalConcertCost();
+                        Console.WriteLine($"The total cost for concert outing to date is ${concert}");
+                        AnyKey();
+                        break;
+                    case "5":
+                    case "exit":
+                    case "e":
+                    default:
+                        runCostMenu = false;
+                        break;
+                }
+            }
         }
         private void TotalCostForAllOutings()
         {
@@ -114,6 +157,16 @@ namespace ExtraChallenge
         {
             DateTime outingDate1 = new DateTime(2022, 06, 25, 00, 00, 00);
             var outing1 = new CompanyObject(20, outingDate1, 100, EventType.Concert);
+            DateTime outingDate2 = new DateTime(2022, 08, 05, 00, 00, 00);
+            var outing2 = new CompanyObject(15, outingDate2, 200, EventType.AmusementPark);
+            DateTime outingDate3 = new DateTime(2022, 05, 15, 00, 00, 00);
+            var outing3 = new CompanyObject(30, outingDate3, 50, EventType.Bowling);
+            DateTime outingDate4 = new DateTime(2022, 07, 10, 00, 00, 00);
+            var outing4 = new CompanyObject(25, outingDate4, 75, EventType.Golf);
+            _companyDirectory.CreateNewOuting(outing1);
+            _companyDirectory.CreateNewOuting(outing2);
+            _companyDirectory.CreateNewOuting(outing3);
+            _companyDirectory.CreateNewOuting(outing4);
         }
     }
 }

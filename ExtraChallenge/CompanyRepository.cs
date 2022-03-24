@@ -14,6 +14,7 @@ namespace ExtraChallenge
         private decimal _amusmentPark;
         private decimal _concert;
         private decimal _totalOutingCost;
+        //C
         public bool CreateNewOuting(CompanyObject outing)
         {
             int startingCount = _outingDirectory.Count();
@@ -31,36 +32,54 @@ namespace ExtraChallenge
             }
             return false;
         }
+        //R
         public List<CompanyObject> DisplayAllOutings()
         {
             return _outingDirectory;
         }
-        public decimal ViewTotalCostByOuting()
+        public decimal ViewTotalGolfCost()
         {
-            foreach(CompanyObject outing in _outingDirectory)
+            foreach (CompanyObject outing in _outingDirectory)
             {
-                if(outing.TypeOfEvent == EventType.Golf)
+                if (outing.TypeOfEvent == EventType.Golf)
                 {
-                    decimal totalOutingsCostG = outing.CostPerEvent + _golf;
-                    return totalOutingsCostG;
-                }
-                else if(outing.TypeOfEvent == EventType.Bowling)
-                {
-                    decimal totalOutingsCostB = outing.CostPerEvent + _bowling;
-                    return totalOutingsCostB;
-                }
-                else if(outing.TypeOfEvent == EventType.AmusementPark)
-                {
-                    decimal totalOutingsCostA = outing.CostPerEvent + _amusmentPark;
-                    return totalOutingsCostA;
-                }
-                else if(outing.TypeOfEvent == EventType.Concert)
-                {
-                    decimal totalOutingsCostC = outing.CostPerEvent + _concert;
-                    return totalOutingsCostC;
+                    _golf += outing.CostPerEvent; 
                 }
             }
-            return 0;
+            return _golf;
+        }
+        public decimal ViewTotalBowlingCost()
+        {
+            foreach (CompanyObject outing in _outingDirectory)
+            {
+                if (outing.TypeOfEvent == EventType.Bowling)
+                {
+                    _bowling += outing.CostPerEvent;
+                }
+            }
+            return _bowling;
+        }
+        public decimal ViewTotalAmusementParkCost()
+        {
+            foreach (CompanyObject outing in _outingDirectory)
+            {
+                if (outing.TypeOfEvent == EventType.AmusementPark)
+                {
+                    _amusmentPark += outing.CostPerEvent;
+                }
+            }
+            return _amusmentPark;
+        }
+        public decimal ViewTotalConcertCost()
+        {
+            foreach (CompanyObject outing in _outingDirectory)
+            {
+                if (outing.TypeOfEvent == EventType.Concert)
+                {
+                    _concert += outing.CostPerEvent;
+                }
+            }
+            return _concert;
         }
         public decimal TotalCostOfAllOutings()
         {

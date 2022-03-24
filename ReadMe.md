@@ -1,10 +1,11 @@
 # Final Project
-This is a solution with three individual console applications that make up the final assignment for the first semester at ElevenFiftyAcademy.
+This is a solution with four individual console applications that make up the final assignment for the first semester at ElevenFiftyAcademy.
 
-##This solution has three seperate projects: 
+##This solution has four seperate projects: 
 Cafe is a menu UI that allows for the adding and searching of certain menu items.
 Claims is a UI that is used to deal with insurance claims for car, home, and theft instances.
 Badges is a UI that allows the adding and tracking of badge id numbers and there respective access to certain doors in the company.
+Outings is a UI that allows the employees to plan and coordinate company outings.
 
 ## Contributing
 No contributions will be taken. This is the final release version.

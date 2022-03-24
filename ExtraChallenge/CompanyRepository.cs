@@ -9,11 +9,6 @@ namespace Outings
     public class CompanyRepository
     {
         protected readonly List<CompanyObject> _outingDirectory = new List<CompanyObject>();
-        private decimal _golf;
-        private decimal _bowling;
-        private decimal _amusmentPark;
-        private decimal _concert;
-        private decimal _totalOutingCost;
         //C
         public bool CreateNewOuting(CompanyObject outing)
         {
@@ -39,55 +34,60 @@ namespace Outings
         }
         public decimal ViewTotalGolfCost()
         {
+            decimal totalCost = 0m;
             foreach (CompanyObject outing in _outingDirectory)
             {
                 if (outing.TypeOfEvent == EventType.Golf)
                 {
-                    _golf += outing.CostPerEvent; 
+                    totalCost += outing.CostPerEvent; 
                 }
             }
-            return _golf;
+            return totalCost;
         }
         public decimal ViewTotalBowlingCost()
         {
+            decimal totalCost = 0m;
             foreach (CompanyObject outing in _outingDirectory)
             {
                 if (outing.TypeOfEvent == EventType.Bowling)
                 {
-                    _bowling += outing.CostPerEvent;
+                    totalCost += outing.CostPerEvent;
                 }
             }
-            return _bowling;
+            return totalCost;
         }
         public decimal ViewTotalAmusementParkCost()
         {
+            decimal totalCost = 0m;
             foreach (CompanyObject outing in _outingDirectory)
             {
                 if (outing.TypeOfEvent == EventType.AmusementPark)
                 {
-                    _amusmentPark += outing.CostPerEvent;
+                    totalCost += outing.CostPerEvent;
                 }
             }
-            return _amusmentPark;
+            return totalCost;
         }
         public decimal ViewTotalConcertCost()
         {
+            decimal totalCost = 0m;
             foreach (CompanyObject outing in _outingDirectory)
             {
                 if (outing.TypeOfEvent == EventType.Concert)
                 {
-                    _concert += outing.CostPerEvent;
+                    totalCost += outing.CostPerEvent;
                 }
             }
-            return _concert;
+            return totalCost;
         }
         public decimal TotalCostOfAllOutings()
         {
-            foreach(CompanyObject outing in _outingDirectory)
+            decimal totalCost = 0m;
+            foreach (CompanyObject outing in _outingDirectory)
             {
-                _totalOutingCost += outing.CostPerEvent;
+                totalCost += outing.CostPerEvent;
             }
-            return _totalOutingCost;
+            return totalCost;
         }
     }
 }

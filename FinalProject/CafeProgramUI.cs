@@ -124,7 +124,7 @@ namespace Cafe
         private void SeedContent()
         {
             List<string> ingredients = new List<string>(new string[] { "water", "cheese", "pasta", "salt" });
-            var item1 = new CafeObject("macaroni", "pasta an cheese", 1, ingredients, 5.00m);
+            var item1 = new CafeObject("macaroni", "pasta and cheese", 1, ingredients, 5.00m);
             List<string> ingredients2 = new List<string>(new string[] { "hamburger", "cheese", "condiments", "tomato", "lettuce", "onion" });
             var item2 = new CafeObject("cheeseburger", "beef patty with assortment of toppings", 2, ingredients2, 6.00m);
             List<string> ingredients3 = new List<string>(new string[] { "pretzel", "cheese" });

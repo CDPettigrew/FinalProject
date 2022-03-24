@@ -8,7 +8,7 @@ namespace Outings
 {
     public class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             CompanyProgramUI ui = new CompanyProgramUI();
             ui.Run();

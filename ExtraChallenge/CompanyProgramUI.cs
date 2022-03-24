@@ -68,7 +68,7 @@ namespace Outings
         {
             Console.Clear();
             CompanyObject newOuting = new CompanyObject();
-            Console.WriteLine("Please enter an event type from the list provied: Golf,Bowling,Amusement Park,Concert");
+            Console.Write("Please enter an event type from the list provied: Golf,Bowling,Amusement Park,Concert: ");
             switch (Console.ReadLine().ToLower())
             {
                 case "golf":
@@ -87,12 +87,21 @@ namespace Outings
                     Console.WriteLine("Please enter a valid event type.");
                     break;
             }
-            Console.WriteLine("Please enter the number of attendees: ");
+            Console.Write("Please enter the number of attendees: ");
             newOuting.NumOfPeople = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Please enter the Date the event will take place, in this format DD/MM/YYYY: ");
+            Console.Write("Please enter the Date the event will take place, in this format MM/DD/YYYY: ");
             newOuting.EventDate = Convert.ToDateTime(Console.ReadLine());
-            Console.WriteLine("Please enter the cost per person: ");
+            Console.Write("Please enter the cost per person: ");
             newOuting.CostPerPerson = Convert.ToDecimal(Console.ReadLine());
+            if (_companyDirectory.CreateNewOuting(newOuting))
+            {
+                Console.WriteLine($"The {newOuting.TypeOfEvent} event has been added to the list!");
+            }
+            else
+            {
+                Console.WriteLine("Something went wrong.");
+            }
+            AnyKey();
         }
         private void TotalCostForOutingType()
         {

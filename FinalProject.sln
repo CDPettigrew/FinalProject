@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Outings", "ExtraChallenge\Outings.csproj", "{7EEA0EA9-6ED3-40BD-8C01-4200D27812C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Outings_Tests", "Outings_Tests\Outings_Tests.csproj", "{0FCAB3BE-2049-4F0C-8103-7D61CB553415}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{7EEA0EA9-6ED3-40BD-8C01-4200D27812C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EEA0EA9-6ED3-40BD-8C01-4200D27812C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EEA0EA9-6ED3-40BD-8C01-4200D27812C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FCAB3BE-2049-4F0C-8103-7D61CB553415}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FCAB3BE-2049-4F0C-8103-7D61CB553415}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FCAB3BE-2049-4F0C-8103-7D61CB553415}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FCAB3BE-2049-4F0C-8103-7D61CB553415}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

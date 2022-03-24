@@ -1,0 +1,119 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ExtraChallenge
+{
+    public class CompanyProgramUI
+    {
+        private CompanyRepository _companyDirectory = new CompanyRepository();
+
+        public void Run()
+        {
+            SeedContent();
+            Menu();
+        } 
+        private void Menu()
+        {
+            bool runMenu = true;
+            while (runMenu)
+            {
+                Console.Clear();
+                Console.WriteLine($"Welcome to the Komodo Outing Planner, Please select a number option below.\n" +
+                    $"1. Display all current outings\n" +
+                    $"2. Add a new outing\n" +
+                    $"3. See the total cost for each outing type\n" +
+                    $"4. See the total cost for all outings\n" +
+                    $"5. Exit the Outing Planner");
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        SeeAllCurrentOutings();
+                        break;
+                    case "2":
+                        CreateAndAddNewOuting();
+                        break;
+                    case "3":
+                        TotalCostForOutingType();
+                        break;
+                    case "4":
+                        TotalCostForAllOutings();
+                        break;
+                    case "5":
+                    case "exit":
+                    case "e":
+                    default:
+                        runMenu = false;
+                        break;
+                }
+            }
+        }
+        private void SeeAllCurrentOutings()
+        {
+            Console.Clear();
+            List<CompanyObject> outings = _companyDirectory.DisplayAllOutings();
+            foreach(CompanyObject outing in outings)
+            {
+                Console.WriteLine($"EventType: {outing.TypeOfEvent}\n" +
+                    $"Number of Attendees: {outing.NumOfPeople}\n" +
+                    $"Date: {outing.EventDate.ToShortDateString()}\n" +
+                    $"Cost Per Person: ${outing.CostPerPerson}\n" +
+                    $"Total Event Cost: ${outing.CostPerEvent}");
+            }
+            AnyKey();
+        }
+        private void CreateAndAddNewOuting()
+        {
+            Console.Clear();
+            CompanyObject newOuting = new CompanyObject();
+            Console.WriteLine("Please enter an event type from the list provied: Golf,Bowling,Amusement Park,Concert");
+            switch (Console.ReadLine().ToLower())
+            {
+                case "golf":
+                    newOuting.TypeOfEvent = EventType.Golf;
+                    break;
+                case "bowling":
+                    newOuting.TypeOfEvent = EventType.Bowling;
+                    break;
+                case "amusement park":
+                    newOuting.TypeOfEvent = EventType.AmusementPark;
+                    break;
+                case "concert":
+                    newOuting.TypeOfEvent = EventType.Concert;
+                    break;
+                default:
+                    Console.WriteLine("Please enter a valid event type.");
+                    break;
+            }
+            Console.WriteLine("Please enter the number of attendees: ");
+            newOuting.NumOfPeople = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Please enter the Date the event will take place, in this format DD/MM/YYYY: ");
+            newOuting.EventDate = Convert.ToDateTime(Console.ReadLine());
+            Console.WriteLine("Please enter the cost per person: ");
+            newOuting.CostPerPerson = Convert.ToDecimal(Console.ReadLine());
+        }
+        private void TotalCostForOutingType()
+        {
+            
+        }
+        private void TotalCostForAllOutings()
+        {
+            Console.Clear();
+            decimal totalCost = _companyDirectory.TotalCostOfAllOutings();
+            Console.WriteLine($"The total cost for all current company outings is: ${totalCost}");
+            AnyKey();
+        }
+        private void AnyKey()
+        {
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+        }
+        private void SeedContent()
+        {
+            DateTime outingDate1 = new DateTime(2022, 06, 25, 00, 00, 00);
+            var outing1 = new CompanyObject(20, outingDate1, 100, EventType.Concert);
+        }
+    }
+}

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExtraChallenge
+namespace Outings
 { 
     public enum EventType { Golf, Bowling, AmusementPark, Concert};
     public class CompanyObject
